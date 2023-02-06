@@ -1,0 +1,56 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.8
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+    gitlab.in2p3.fr/opsportal/eosc-opsportal:
+      branch: develop
+      repo: https://gitlab.in2p3.fr/opsportal/eosc-opsportal
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      gitlab.in2p3.fr/opsportal/eosc-opsportal git:
+        commands:
+        - /usr/bin/env sh .sqa/script.tacky-amaranth-crocodile.sh
+        container: qc.acc_freaky-eggplant-shark
+  QC.Doc:
+    repos:
+      gitlab.in2p3.fr/opsportal/eosc-opsportal find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.paltry-myrtle-wolfhound.sh
+        container: qc.doc_tasty-razzmatazz-goat
+      gitlab.in2p3.fr/opsportal/eosc-opsportal git:
+        commands:
+        - /usr/bin/env sh .sqa/script.scummy-apricot-echidna.sh
+        container: qc.doc_pasty-azure-insect
+      gitlab.in2p3.fr/opsportal/eosc-opsportal markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.scanty-xanthic-whale.sh
+        container: qc.doc_ugly-turquoise-beagle
+  QC.Lic:
+    repos:
+      gitlab.in2p3.fr/opsportal/eosc-opsportal licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.fuzzy-grey-mayfly.sh
+        container: qc.lic_snoopy-amethyst-tarsier
+  QC.Sty:
+    repos:
+      gitlab.in2p3.fr/opsportal/eosc-opsportal hadolint:
+        commands:
+        - /usr/bin/env sh .sqa/script.messy-buff-echidna.sh
+        container: qc.sty_freaky-wisteria-meerkat
+      gitlab.in2p3.fr/opsportal/eosc-opsportal jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.homely-ivory-gopher.sh
+        container: qc.sty_scaly-auburn-giraffe
+  QC.Ver:
+    repos:
+      gitlab.in2p3.fr/opsportal/eosc-opsportal get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.lumpy-jade-lion.sh
+        container: qc.ver_homely-amber-dodo
+timeout: 5400
