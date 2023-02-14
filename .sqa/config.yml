@@ -5,7 +5,7 @@ config:
       branch: release/1.7.8
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
     gitlab.in2p3.fr/opsportal/eosc-opsportal:
-      branch: develop
+      branch: master
       repo: https://gitlab.in2p3.fr/opsportal/eosc-opsportal
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -15,42 +15,42 @@ sqa_criteria:
     repos:
       gitlab.in2p3.fr/opsportal/eosc-opsportal git:
         commands:
-        - /usr/bin/env sh .sqa/script.tacky-amaranth-crocodile.sh
-        container: qc.acc_freaky-eggplant-shark
+        - /usr/bin/env sh .sqa/script.stuffy-maroon-toucan.sh
+        container: qc.acc_gamy-gold-discus
   QC.Doc:
     repos:
       gitlab.in2p3.fr/opsportal/eosc-opsportal find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.paltry-myrtle-wolfhound.sh
-        container: qc.doc_tasty-razzmatazz-goat
+        - /usr/bin/env sh .sqa/script.sloppy-puce-grasshopper.sh
+        container: qc.doc_queasy-taupe-hyena
       gitlab.in2p3.fr/opsportal/eosc-opsportal git:
         commands:
-        - /usr/bin/env sh .sqa/script.scummy-apricot-echidna.sh
-        container: qc.doc_pasty-azure-insect
+        - /usr/bin/env sh .sqa/script.cheeky-olive-collie.sh
+        container: qc.doc_squeaky-tangerine-retriever
       gitlab.in2p3.fr/opsportal/eosc-opsportal markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.scanty-xanthic-whale.sh
-        container: qc.doc_ugly-turquoise-beagle
+        - /usr/bin/env sh .sqa/script.cozy-smalt-hamster.sh
+        container: qc.doc_sunny-pear-mongrel
   QC.Lic:
     repos:
       gitlab.in2p3.fr/opsportal/eosc-opsportal licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.fuzzy-grey-mayfly.sh
-        container: qc.lic_snoopy-amethyst-tarsier
+        - /usr/bin/env sh .sqa/script.randy-cerulean-markhor.sh
+        container: qc.lic_flaky-gold-camel
   QC.Sty:
     repos:
       gitlab.in2p3.fr/opsportal/eosc-opsportal hadolint:
         commands:
-        - /usr/bin/env sh .sqa/script.messy-buff-echidna.sh
-        container: qc.sty_freaky-wisteria-meerkat
+        - /usr/bin/env sh .sqa/script.snoopy-myrtle-zebra.sh
+        container: qc.sty_queasy-tan-fish
       gitlab.in2p3.fr/opsportal/eosc-opsportal jsonlint:
         commands:
-        - /usr/bin/env sh .sqa/script.homely-ivory-gopher.sh
-        container: qc.sty_scaly-auburn-giraffe
+        - /usr/bin/env sh .sqa/script.baggy-burgundy-woodpecker.sh
+        container: qc.sty_whiny-harlequin-bordeaux
   QC.Ver:
     repos:
       gitlab.in2p3.fr/opsportal/eosc-opsportal get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.lumpy-jade-lion.sh
-        container: qc.ver_homely-amber-dodo
+        - /usr/bin/env sh .sqa/script.seedy-taupe-yak.sh
+        container: qc.ver_shaky-ultramarine-squid
 timeout: 5400
